@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 const mailchimp = require('@mailchimp/mailchimp_marketing');
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(express.static('public'));
@@ -21,5 +21,5 @@ app.post('/dashboard', (req, res)=>{
 })
 
 app.listen(port, ()=>{
-    console.log(`...server is running at port ${port}`);
+    console.log(`...server is running`);
 });
